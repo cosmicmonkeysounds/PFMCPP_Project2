@@ -17,15 +17,13 @@ video: Chapter 2 - Part 3
  1) Write down the names of all of the primitives available in C++ (excluding wchar_t)
  put them here: 
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ int
+ unsigned int
+ float
+ double
+ bool
+ char
+ void // I understand this is a return type and not used for variable declarations, but some resources say this is a primitive type, so I am including it.
  
 2) for each primitive type, write out 3 variable declarations inside the variableDeclaration function.
     give each declaration an initial value
@@ -66,9 +64,32 @@ void variableDeclarations()
     //example:
     int number = 2; //declaration of a primitive named 'number' with an initial value of '2'
     
+    int semitoneFromRoot = -3;
+    int latticeCoordinate = -20;
+    int dailyCalorieIntake = 2400;
+    
+    unsigned int keyPressed = 88;
+    unsigned int filterMode = 2;
+    unsigned int numberOfMistakes = 9001;
+
+    float frequency = 440.0f;
+    float cutoffFreq = 1002.14f;
+    float distance = 192.83f;
+
+    double planckNumber = 6.62607015e-34;
+    double cosmologicalConstant = 2.036e-35;
+    double gravitationalConstant = 6.6743e-11;
+
+    bool shouldWeMakeANoise = true;
+    bool filterEnabled = false;
+    bool humanizeEnabled = false;
+
+    char version = 'B';
+    char myGrade = 'F';
+    char averageGrade = 'C';
     
     
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(number, semitoneFromRoot, latticeCoordinate, dailyCalorieIntake, keyPressed, filterMode, numberOfMistakes, frequency, cutoffFreq, distance, planckNumber, cosmologicalConstant, gravitationalConstant, shouldWeMakeANoise, filterEnabled, humanizeEnabled, version, myGrade, averageGrade); //passing each variable declared to the ignoreUnused() function
 }
 /*
  10 functions
@@ -83,42 +104,92 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
+void makeNoise(int note, int instrument)
+{
+    ignoreUnused(note, instrument);
+}
+
 
 /*
  2)
  */
+float calculateVelocity(float distanceA, float distanceB, float dt)
+{
+    ignoreUnused(distanceA, distanceB, dt);
+    return {};
+}
 
 /*
  3)
  */
 
+int caloriesBurned(float minutesOfExercise)
+{
+    ignoreUnused(minutesOfExercise);
+    return {};
+}
+
 /*
  4)
  */
+void addInstrument(int instrument = 10)
+{
+    ignoreUnused(instrument);
+}
 
 /*
  5)
  */
+void removeInstrument(int instrument = 10)
+{
+    ignoreUnused(instrument);
+}
 
 /*
  6)
  */
+void readMIDI(int input = 0)
+{
+    ignoreUnused(input);
+}
 
 /*
  7)
  */
+float noteToFreq(int note)
+{
+    ignoreUnused(note);
+    return {};
+}
+
 
 /*
  8)
  */
+int freqToNote(float freq)
+{
+    ignoreUnused(freq);
+    return {};
+}
 
 /*
  9)
  */
+float newtonsMethod(float x, float dx, float guess = 1)
+{
+    ignoreUnused(x, dx, guess);
+    return {};
+}
+
 
 /*
  10)
  */
+int fibonacci(int fibNumber = 100)
+{
+    ignoreUnused(fibNumber);
+    return {};
+}
 
 int main()
 {
@@ -126,27 +197,37 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
+    makeNoise(1, 44);
     
     //2)
+    auto velocity = calculateVelocity(1.5f, 20.4f, 5.03f);
     
     //3)
+    auto burntCalories = caloriesBurned(45.3f);
     
     //4)
+    addInstrument();
     
     //5)
+    removeInstrument(11);
     
     //6)
+    readMIDI(1);
     
     //7)
+    auto freq = noteToFreq(22);
     
     //8)
+    auto note = freqToNote(432.0f);
     
     //9)
+    auto newtonApprox = newtonsMethod(10.2f, 2.2f, 8.254f);
     
     //10)
+    auto fibNum = fibonacci(1000);
     
     
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, velocity, burntCalories, freq, note, newtonApprox, fibNum);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
